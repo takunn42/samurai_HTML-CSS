@@ -1,0 +1,1 @@
+select purchaseDate, avg(sales) from training1.transactions group by purchaseDate having avg(sales) >= 500;
