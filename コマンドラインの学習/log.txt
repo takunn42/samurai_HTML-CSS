@@ -1,0 +1,148 @@
+ec2-user:~/environment $ pwd
+/home/ec2-user/environment
+ec2-user:~/environment $ 
+
+
+ec2-user:~/environment $ mkdir hoge
+<mkdir ディレクトリ名でディレクトリを作成することができる>
+ec2-user:~/environment $ rmdir hoge
+<rmdir　ディレクトリ名でディレクトリを消去することができる>
+
+
+ec2-user:~/environment $ ls img
+<lsは、カレントディレクトリ(今作業しているディレクトリ)のファイル一覧を表示するコマンド>
+ls: cannot access img: No such file or directory
+ec2-user:~/environment $ 
+
+ec2-user:~/environment $ touch test.txt
+<touchはファイルを作成できるコマンドです。>
+
+ec2-user:~/environment $ mv test.txt hoge
+<mvはファイルやディレクトリの移動、名前の変更をするときに使うコマンド。>
+<mv 移動させたいファイル名　移動先のディレクトリ名>
+ec2-user:~/environment $ mv hoge/test.txt hoge/hoge.txt
+<mv 元のファイル名　変更後のファイル名で名前の変更ができる>
+
+ec2-user:~/environment $ touch fuga.txt
+ec2-user:~/environment $ rm fuga.txt
+<rm　ファイル(ディレクトリ)名で削除することができる>
+
+ec2-user:~/environment $ cat hoge/hoge.txt
+<cat　ディレクトリ名/ファイル名でファイルの中身を確認できる>
+hogehogeec2-user:~/environment $ 
+
+ec2-user:~/environment $ cp hoge/hoge.txt hoge/fuga.txt
+<cpはファイルやディレクトリをコピーするコマンド>
+ec2-user:~/environment $ 
+
+ec2-user:~/environment $ cp -r hoge fuga
+
+ec2-user:~/environment $ ls
+about.html  images          test
+fuga        index.html      tte
+hoge        README.md       コマンドラインの学習
+home.html   stylesheet.css  課題
+
+ec2-user:~/environment $ ls hoge
+fuga.txt  hoge.txt  time
+
+ec2-user:~/environment $ rm -r hoge
+<rm -rはディレクトリの中身も一緒に消去できるコマンド>
+
+ec2-user:~/environment $ mkdir hog
+ec2-user:~/environment $ rmdir hog
+<rmdirは、中に何もない空のディレクトリを消去できるコマンド>
+
+ec2-user:~/environment $ ls -a
+<ls -aは隠しファイルやディレクトリ(.から始まるもの)も含めて表示する>
+.           home.html       test
+..          images          tte
+about.html  index.html      コマンドラインの学習
+.c9         README.md       課題
+fuga        stylesheet.css
+
+ec2-user:~/environment/hoge $ ls -l hoge.txt
+-rw-rw-r-- 1 ec2-user ec2-user 0 Jul  7 04:42 hoge.txt
+<ls -lはファイルやディレクトリの権限を表示するコマンド>
+
+ec2-user:~/environment/hoge $ chmod 777 hoge.txt
+<chmodは権限を変更できるコマンド>
+ec2-user:~/environment/hoge $ ls -l hoge.txt
+-rwxrwxrwx 1 ec2-user ec2-user 0 Jul  7 04:42 hoge.txt
+
+ec2-user:~/environment/hoge $ sudo chown root hoge.txt
+<shown はファイルやディレクトリの所有者を変更することができるコマンド>
+<sudoコマンドはスーパーユーザーの権限でコマンドを実行できる>
+
+
+
+2021-06-27
+-------------------------------
+ec2-user:~/environment $ ls
+about.html  home.html  images  index.html  README.md  stylesheet.css  test.txt  tte  コマンドラインの学習  課題
+ec2-user:~/environment $ pwd
+/home/ec2-user/environment
+ec2-user:~/environment $ mkdir test
+ec2-user:~/environment $ ls 
+about.html  home.html  images  index.html  README.md  stylesheet.css  test  test.txt  tte  コマンドラインの学習  課題
+ec2-user:~/environment $ cd test
+ec2-user:~/environment/test $ ls
+ec2-user:~/environment/test $ touch test.html
+
+
+
+2021-0707 学習振り返りの演習
+
+1. コマンドラインからディレクトリとファイルを作成してみよう！
+ただし，sample.py には `print("Hello,Python!")` の一行を追加し表示確認する．
+
+構成例
+memo
+├── memo1.txt
+├── memo2.txt
+├── memo3.txt
+├── memo4.txt
+├── memo5.txt
+└── sample_code
+    └── sample.py
+    
+======================
+ec2-user:~/environment/hoge $ mkdir memo
+ec2-user:~/environment/hoge $ cd memo
+ec2-user:~/environment/hoge/memo $ pwd
+/home/ec2-user/environment/hoge/memo
+ec2-user:~/environment/hoge/memo $ touch memo1.txt memo2.txt memo3.txt memo4.txt memo5.txt
+ec2-user:~/environment/hoge/memo $ ls
+memo1.txt  memo2.txt  memo3.txt  memo4.txt  memo5.txt
+ec2-user:~/environment/hoge/memo $ mkdir sample_code
+ec2-user:~/environment/hoge/memo $ cd sample_code
+ec2-user:~/environment/hoge/memo/sample_code $ touch sample.py
+ec2-user:~/environment/hoge/memo/sample_code $ 
+
+ec2-user:~/environment $ ls
+about.html  home.html   README.md       tte
+fuga        images      stylesheet.css  コマンドラインの学習
+hoge        index.html  test
+課題
+ec2-user:~/environment $ pwd
+/home/ec2-user/environment
+ec2-user:~/environment $ cat hoge/memo/sample_code/sample.py 
+print("Hello,Python!"print("Hello,Python!"))
+========================================
+
+
+2. 作成したmemoファイルのアクセス権限を確認してみよう！
+- memo1.txt を全開放した権限に変更
+- memo2.txt の所有者をrootに変更
+- それぞれの変更を確認する
+========================================
+ec2-user:~/environment $ ls -l hoge/memo/memo1.txt 
+-rw-rw-r-- 1 ec2-user ec2-user 0 Jul  7 10:23 hoge/memo/memo1.txt
+ec2-user:~/environment $ chmod 777 hoge/memo/memo1.txt 
+ec2-user:~/environment $ ls -l hoge/memo/memo1.txt 
+-rwxrwxrwx 1 ec2-user ec2-user 0 Jul  7 10:23 hoge/memo/memo1.txt
+ec2-user:~/environment $ sudo chown root hoge/memo/memo1.txt 
+ec2-user:~/environment $ ls -l hoge/memo/memo1.txt 
+-rwxrwxrwx 1 root ec2-user 0 Jul  7 10:23 hoge/memo/memo1.txt
+
+========================================
